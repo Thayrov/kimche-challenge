@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "reset": "rm -rf node_modules/ package-lock.json && npm i",
     "clean": "rm -rf node_modules/ package-lock.json",
-    "format": "prettier --write \"./**/*.{js,jsx,json,css}\"",
+    "format": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css}\"",
     "prepare": "husky"
   },
   "dependencies": {
