@@ -1,0 +1,36 @@
+name: Auto PR from dev to main and Merge
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: 'auto-pr-branch-${{ github.sha }}'
+          base: main
+          title: 'Automated PR to Main'
+          body: |
+            This is an automated pull request to update the main branch with changes from dev.
+          labels: automerge
+
+  automerge:
+    needs: create-pr
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automerge
+        uses: 'pascalgn/automerge-action@v0.16.2'
+        with:
+          MERGE_LABELS: 'automerge'
+          MERGE_METHOD: 'merge'
+          MERGE_COMMIT_MESSAGE: 'pull-request-title'
+          MERGE_RETRIES: 3
+          MERGE_RETRY_SLEEP: 10000
