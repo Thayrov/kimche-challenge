@@ -20,6 +20,6 @@ jobs:
           commit-message: update branch
           title: automated PR to main
           body: this is an automated pull request to update the main branch with changes from dev.
-          branch: dev
+          branch: pr-branch-${{ github.run_id }}
           base: main
           labels: automerge
