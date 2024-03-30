@@ -2,9 +2,9 @@ name: Automerge PRs
 
 on:
   pull_request:
-    types: [opened, synchronize, labeled, unlabeled]
-    branches:
-      - main
+    types:
+      - labeled
+      - unlabeled
 
 jobs:
   automerge:
