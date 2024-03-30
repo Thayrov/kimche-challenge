@@ -1,0 +1,35 @@
+name: Sync main with dev
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  sync-main-with-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Reset main to dev
+        run: |
+          git fetch origin dev:dev
+          git reset --hard dev
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: sync-main-${{ github.run_number }}
+          base: main
+          title: 'Sync main with dev'
+          body: 'Automated PR to update main branch with changes from dev.'
+          labels: automerge
+          commit-message: 'Update main with changes from dev'
