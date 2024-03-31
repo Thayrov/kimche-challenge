@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@apollo/client';
-import { GET_CHARACTER, GET_CHARACTERS } from './queries';
+import { GET_CHARACTER, GET_CHARACTERS } from '../graphql/queries';
 
 export const useCharacter = (id: string) => {
   const { error, data } = useSuspenseQuery(GET_CHARACTER, {
