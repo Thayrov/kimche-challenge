@@ -27,7 +27,6 @@ const readCharacter: FieldReadFunction<Character | Reference> = (_, { args, toRe
     __typename: 'Character',
     id: args?.id as string,
   });
-
   return ref;
 };
 
@@ -35,7 +34,7 @@ export const cacheOptions: TypePolicies = {
   Query: {
     fields: {
       characters: {
-        keyArgs: false,
+        keyArgs: ['filter'],
         merge: mergeCharacters,
       },
       character: {
