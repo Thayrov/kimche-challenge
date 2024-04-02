@@ -5,9 +5,14 @@ import CardSkeleton from './CardSkeleton';
 import { Character } from '../types';
 import { useCharacters } from '../graphql/hooks';
 
-const Cards = () => {
+const Cards = ({ searchResults }: { searchResults?: Character[] }) => {
   const { data } = useCharacters();
-  const results = (data as { characters: { results: Character[] } })?.characters?.results;
+  const results =
+    searchResults?.length === 0
+      ? (data as { characters: { results: Character[] } })?.characters?.results
+      : searchResults;
+  console.log('🚀 ~ Cards ~ searchResults:', searchResults);
+  console.log('🚀 ~ Cards ~ data:', data);
 
   return (
     <CardsDiv>
