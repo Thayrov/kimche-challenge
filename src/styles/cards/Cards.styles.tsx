@@ -4,11 +4,14 @@ import { FlexCenter } from '../Base.styles';
 export const CardsDiv = styled.div`
   ${FlexCenter};
   flex-wrap: wrap;
-  width: 100%;
+  width: 100vw;
   max-height: 550px;
-  overflow-x: scroll;
+  overflow-y: auto;
   margin-top: 20px;
-  max-width: 1300px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    padding: 0px 100px;
+  }
 
   -ms-overflow-style: none;
   scrollbar-width: none;

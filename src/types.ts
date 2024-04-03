@@ -18,3 +18,11 @@ export interface CharactersPage {
 export interface CharactersArgs {
   page?: number;
 }
+
+export interface SearchCriteria {
+  name?: string;
+  page?: number;
+  gender?: string;
+  status?: string;
+  species?: string;
+}

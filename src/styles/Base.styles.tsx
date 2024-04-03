@@ -10,6 +10,14 @@ export const theme = {
   nyanza: '223, 238, 212',
   razzmatazz: '227, 41, 119',
   blue_green: '0, 152, 184',
+  breakpoints: {
+    mobile: '576px',
+    tablet: '768px',
+    desktop: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+    '3xl': '1920px',
+  },
 };
 
 /* ############## BASE FUNCTIONS ############## */
