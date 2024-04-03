@@ -1,8 +1,15 @@
-import { useSuspenseQuery } from '@apollo/client';
+import { ApolloError, useSuspenseQuery } from '@apollo/client';
 import { GET_CHARACTER, GET_CHARACTERS } from '../graphql/queries';
+import { Character } from '../types';
 
-export const useCharacter = (id: string) => {
-  const { error, data } = useSuspenseQuery(GET_CHARACTER, {
+interface CharacterData {
+  character: Character;
+}
+
+export const useCharacter = (
+  id: string
+): { data: CharacterData | undefined; error: ApolloError | undefined } => {
+  const { error, data } = useSuspenseQuery<CharacterData>(GET_CHARACTER, {
     variables: { id },
   });
   return { error, data };

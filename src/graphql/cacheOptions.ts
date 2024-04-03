@@ -39,7 +39,7 @@ export const cacheOptions: TypePolicies = {
       },
       character: {
         read: readCharacter,
-        keyArgs: false,
+        keyArgs: ['id'],
       },
     },
   },
