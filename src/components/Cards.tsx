@@ -11,8 +11,6 @@ const Cards = ({ searchResults }: { searchResults?: Character[] }) => {
     searchResults?.length === 0
       ? (data as { characters: { results: Character[] } })?.characters?.results
       : searchResults;
-  console.log('🚀 ~ Cards ~ searchResults:', searchResults);
-  console.log('🚀 ~ Cards ~ data:', data);
 
   return (
     <CardsDiv>

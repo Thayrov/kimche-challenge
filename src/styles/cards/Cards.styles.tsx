@@ -8,6 +8,7 @@ export const CardsDiv = styled.div`
   max-height: 550px;
   overflow-x: scroll;
   margin-top: 20px;
+  max-width: 1300px;
 
   -ms-overflow-style: none;
   scrollbar-width: none;

@@ -54,8 +54,6 @@ const SearchBar = ({ getCharacters }: SearchBarProps) => {
     setGender('');
     setStatus('');
     setSpecies('');
-    // Opcionalmente, puedes ejecutar la consulta nuevamente aquí si deseas
-    // que los resultados se actualicen inmediatamente después de restablecer los filtros
     getCharacters({ variables: { page: 1 } });
   };
 
