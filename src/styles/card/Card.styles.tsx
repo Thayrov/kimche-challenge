@@ -32,7 +32,7 @@ export const CardDiv = styled.div`
     content: '';
     height: 5px;
     position: absolute;
-    z-index: 4;
+    z-index: 10;
     left: 50%;
     translate: -50% 0%;
     ${themeBackgroundColor('yellow_green', 0.8)};
@@ -58,7 +58,7 @@ export const CardImage = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   left: 0px;
   top: 0px;
   background-size: 300%;
@@ -83,7 +83,7 @@ export const InfoContainer = styled.article`
   ${FlexColumnCenter};
   justify-content: space-between;
   flex-direction: column-reverse;
-  z-index: 50;
+  z-index: 10;
   width: 95%;
   flex-grow: 1;
   position: relative;
@@ -154,7 +154,7 @@ export const Screen = styled.div`
   background-repeat: repeat;
   animation: ${panOverlay} 44s infinite linear;
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   left: 0px;
   top: 0px;
 `;
