@@ -1,17 +1,9 @@
-import { BaseInput, FlexCenter, themeColor } from '../Base.styles';
+import { BaseInput, themeColor } from '../Base.styles';
 import styled from 'styled-components';
 
-export const SearchDiv = styled.div`
-  ${FlexCenter};
-  width: 100%;
-  height: 100%;
-  margin-top: 20px;
-  z-index: 10;
-`;
-
 export const SearchBarStyledInput = styled(BaseInput)`
-  width: 900px;
-  height: 50px;
+  width: 450px;
+  height: 45px;
   -webkit-appearance: none;
   appearance: none;
 
