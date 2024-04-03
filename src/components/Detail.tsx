@@ -12,10 +12,10 @@ import Loader from './Loader';
 import { useCharacter } from '../graphql/hooks';
 
 const Detail = ({ id, onClose }: { id: string; onClose: () => void }) => {
-  const { data, error } = useCharacter(id);
-  if (error) return <p>Error :(</p>;
+  const { data } = useCharacter(id);
+  const character = data!.character;
 
-  const { name, origin, gender, status, image, species } = data.character;
+  const { name, origin, gender, status, image, species } = character;
 
   return (
     <DetailContainer>

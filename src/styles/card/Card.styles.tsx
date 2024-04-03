@@ -10,7 +10,11 @@ import {
   themeColor,
 } from '../Base.styles';
 
-export const CardDiv = styled.div`
+interface CardImageProps {
+  $image: string;
+}
+
+export const CardDiv = styled.div<CardImageProps>`
   ${FlexColumnCenter};
   width: 300px;
   ${borderStyle(2)};
@@ -53,7 +57,7 @@ export const CardDiv = styled.div`
   }
 `;
 
-export const CardImage = styled.div`
+export const CardImage = styled.div<CardImageProps>`
   background-image: url(${(props) => props.$image});
   height: 100%;
   width: 100%;
