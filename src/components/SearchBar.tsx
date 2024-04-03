@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { SearchBarStyledInput } from '../styles/searchBar/SearchBar.styles';
 import { LazyQueryHookExecOptions, OperationVariables } from '@apollo/client';
 import {
@@ -7,77 +7,76 @@ import {
   StyledOption,
   StyledSelect,
 } from '../styles/select/Select.styles';
+import { SearchCriteria } from '../types';
 
 interface SearchBarProps {
   getCharacters: (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options: Partial<LazyQueryHookExecOptions<any, OperationVariables>> | undefined
   ) => void;
+  updateSearchCriteria: (newCriteria: SearchCriteria) => void;
+  searchCriteria: SearchCriteria;
 }
 
-const SearchBar = ({ getCharacters }: SearchBarProps) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [gender, setGender] = useState('');
-  const [status, setStatus] = useState('');
-  const [species, setSpecies] = useState('');
-
+const SearchBar = ({ getCharacters, updateSearchCriteria, searchCriteria }: SearchBarProps) => {
   useEffect(() => {
     const handler = setTimeout(() => {
-      if (searchTerm || gender || status || species) {
+      if (searchCriteria) {
         getCharacters({
           variables: {
-            name: searchTerm,
+            name: searchCriteria.name,
             page: 1,
-            gender: gender !== 'all' ? gender : undefined,
-            status: status !== 'all' ? status : undefined,
-            species: species !== 'all' ? species : undefined,
+            gender: searchCriteria.gender !== 'all' ? searchCriteria.gender : undefined,
+            status: searchCriteria.status !== 'all' ? searchCriteria.status : undefined,
+            species: searchCriteria.species !== 'all' ? searchCriteria.species : undefined,
           },
         });
       }
     }, 1000);
     return () => clearTimeout(handler);
-  }, [searchTerm, gender, status, species, getCharacters]);
+  }, [searchCriteria, getCharacters]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    const { name, value } = e.target;
+    updateSearchCriteria({ [name]: value });
   };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    if (name === 'gender') setGender(value);
-    else if (name === 'status') setStatus(value);
-    else if (name === 'species') setSpecies(value);
+    updateSearchCriteria({ [name]: value });
   };
 
   const resetFilters = () => {
-    setSearchTerm('');
-    setGender('');
-    setStatus('');
-    setSpecies('');
-    getCharacters({ variables: { page: 1 } });
+    updateSearchCriteria({
+      name: '',
+      gender: 'all',
+      status: 'all',
+      species: 'all',
+    });
   };
 
   return (
     <>
       <SelectContainer>
         <SearchBarStyledInput
-          type='search'
-          value={searchTerm}
+          type='text'
+          name='name'
+          value={searchCriteria.name || ''}
           onChange={handleInputChange}
           placeholder='Search characters'
         />
-        <StyledSelect name='gender' onChange={handleSelectChange} defaultValue='placeholder'>
+        <StyledSelect name='gender' onChange={handleSelectChange} value={searchCriteria.gender}>
           <StyledOption value='placeholder' disabled>
             Choose a gender
           </StyledOption>
-          <StyledOption value='all'>All Card</StyledOption>
+          <StyledOption value='all'>All Genders</StyledOption>
           <StyledOption value='Male'>Male</StyledOption>
           <StyledOption value='Female'>Female</StyledOption>
           <StyledOption value='Genderless'>Genderless</StyledOption>
           <StyledOption value='unknown'>unknown</StyledOption>
         </StyledSelect>
 
-        <StyledSelect name='status' onChange={handleSelectChange} defaultValue='placeholder'>
+        <StyledSelect name='status' onChange={handleSelectChange} value={searchCriteria.status}>
           <StyledOption value='placeholder' disabled>
             Choose a status
           </StyledOption>
@@ -87,7 +86,7 @@ const SearchBar = ({ getCharacters }: SearchBarProps) => {
           <StyledOption value='unknown'>Unknown</StyledOption>
         </StyledSelect>
 
-        <StyledSelect name='species' onChange={handleSelectChange} defaultValue='placeholder'>
+        <StyledSelect name='species' onChange={handleSelectChange} value={searchCriteria.species}>
           <StyledOption value='placeholder' disabled>
             Choose a specie
           </StyledOption>

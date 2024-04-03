@@ -34,7 +34,7 @@ export const cacheOptions: TypePolicies = {
   Query: {
     fields: {
       characters: {
-        keyArgs: ['filter'],
+        keyArgs: ['filter', 'page'],
         merge: mergeCharacters,
       },
       character: {
