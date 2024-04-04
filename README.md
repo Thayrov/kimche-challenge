@@ -14,84 +14,86 @@ Thayrov García Tovar
 
 Below is the folder structure of the project:
 
-📁 challenge-dev
-├── .eslintrc.cjs
-├── .gitignore
-├── .lintstagedrc
-├── .prettierignore
-├── .prettierrc
-├── commitlint.config.ts
-├── index.html
-├── LICENSE
-├── package-lock.json
-├── package.json
-├── README.md
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
-├── 📁 .github
-│ └── 📁 workflows
-│ └── sync-main-with-dev-and-deploy.yml
-├── 📁 .husky
-│ ├── commit-msg
-│ └── pre-commit
-├── 📁 public
-│ ├── android-chrome-192x192.png
-│ ├── android-chrome-512x512.png
-│ ├── apple-touch-icon.png
-│ ├── favicon-16x16.png
-│ ├── favicon-32x32.png
-│ ├── favicon.ico
-│ ├── site.webmanifest
-│ └── vite.svg
-└── 📁 src
-├── App.tsx
-├── main.tsx
-├── vite-env.d.ts
-├── 📁 assets
-│ └── react.svg
-├── 📁 components
-│ ├── Blob.tsx
-│ ├── Card.tsx
-│ ├── Cards.tsx
-│ ├── CardSkeleton.tsx
-│ ├── Detail.tsx
-│ ├── ErrorBoundary.tsx
-│ ├── Footer.tsx
-│ ├── Loader.tsx
-│ ├── Pagination.tsx
-│ ├── SearchBar.tsx
-├── 📁 graphql
-│ ├── apolloClient.ts
-│ ├── cacheOptions.ts
-│ ├── hooks.ts
-│ └── queries.ts
-├── 📁 styles
-│ ├── 📁 app
-│ │ └── App.styles.tsx
-│ ├── Base.styles.tsx
-│ ├── 📁 blob
-│ │ └── Blob.styles.tsx
-│ ├── 📁 card
-│ │ └── Card.styles.tsx
-│ ├── 📁 cards
-│ │ └── Cards.styles.tsx
-│ ├── 📁 detail
-│ │ └── Detail.styles.tsx
-│ ├── 📁 footer
-│ │ └── Footer.styles.tsx
-│ ├── GlobalStyle.tsx
-│ ├── 📁 loader
-│ │ └── Loader.styles.tsx
-│ ├── 📁 pagination
-│ │ └── Pagination.styles.tsx
-│ ├── 📁 searchBar
-│ │ └── SearchBar.styles.tsx
-│ ├── 📁 select
-│ │ └── Select.styles.tsx
-└── types.ts
-└── 📁 utils
-└── consts.ts
+```
+└── 📁challenge-dev
+    └── .eslintrc.cjs
+    └── 📁.github
+        └── 📁workflows
+            └── sync-main-with-dev-and-deploy.yml
+    └── .gitignore
+    └── 📁.husky
+        └── commit-msg
+        └── pre-commit
+    └── .lintstagedrc
+    └── .prettierignore
+    └── .prettierrc
+    └── commitlint.config.ts
+    └── index.html
+    └── LICENSE
+    └── package-lock.json
+    └── package.json
+    └── 📁public
+        └── android-chrome-192x192.png
+        └── android-chrome-512x512.png
+        └── apple-touch-icon.png
+        └── favicon-16x16.png
+        └── favicon-32x32.png
+        └── favicon.ico
+        └── site.webmanifest
+        └── vite.svg
+    └── README.md
+    └── 📁src
+        └── App.tsx
+        └── 📁assets
+            └── react.svg
+        └── 📁components
+            └── Blob.tsx
+            └── Card.tsx
+            └── Cards.tsx
+            └── CardSkeleton.tsx
+            └── Detail.tsx
+            └── ErrorBoundary.tsx
+            └── Footer.tsx
+            └── Loader.tsx
+            └── Pagination.tsx
+            └── SearchBar.tsx
+        └── 📁graphql
+            └── apolloClient.ts
+            └── cacheOptions.ts
+            └── hooks.ts
+            └── queries.ts
+        └── main.tsx
+        └── 📁styles
+            └── 📁app
+                └── App.styles.tsx
+            └── Base.styles.tsx
+            └── 📁blob
+                └── Blob.styles.tsx
+            └── 📁card
+                └── Card.styles.tsx
+            └── 📁cards
+                └── Cards.styles.tsx
+            └── 📁detail
+                └── Detail.styles.tsx
+            └── 📁footer
+                └── Footer.styles.tsx
+            └── GlobalStyle.tsx
+            └── 📁loader
+                └── Loader.styles.tsx
+            └── 📁pagination
+                └── Pagination.styles.tsx
+            └── 📁searchBar
+                └── SearchBar.styles.tsx
+            └── 📁select
+                └── Select.styles.tsx
+        └── types.ts
+        └── 📁utils
+            └── consts.ts
+        └── vite-env.d.ts
+    └── tsconfig.json
+    └── tsconfig.node.json
+    └── vite.config.ts
+```
 
 ## Instructions
 
